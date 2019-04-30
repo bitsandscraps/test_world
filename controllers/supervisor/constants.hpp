@@ -39,24 +39,24 @@ namespace constants {
   constexpr std::size_t ESTIMATED_SUBIMAGE_SIZE = (RESOLUTION_X / SUBIMAGE_NX) * (RESOLUTION_Y / SUBIMAGE_NY) * 4 + 100;
 
   // Field Dimensions
-  constexpr double FIELD_LENGTH = 3.8;
-  constexpr double FIELD_WIDTH  = 2.7;
-  constexpr double GOAL_DEPTH   = 0.15;
-  constexpr double GOAL_WIDTH   = 0.6;
-  constexpr double PENALTY_AREA_DEPTH = 0.5;
-  constexpr double PENALTY_AREA_WIDTH = 1.3;
-  constexpr double GOAL_AREA_DEPTH = 0.2;
-  constexpr double GOAL_AREA_WIDTH = 0.85;
+  constexpr double FIELD_LENGTH = 7.8;
+  constexpr double FIELD_WIDTH  = 4.65;
+  constexpr double GOAL_DEPTH   = 0.45;
+  constexpr double GOAL_WIDTH   = 1.0;
+  constexpr double PENALTY_AREA_DEPTH = 0.9;
+  constexpr double PENALTY_AREA_WIDTH = 1.8;
+  constexpr double GOAL_AREA_DEPTH = 0.4;
+  constexpr double GOAL_AREA_WIDTH = 1.3;
 
   // Ball Dimension
-  constexpr double BALL_RADIUS = 0.03;
+  constexpr double BALL_RADIUS = 0.05;
 
   // Robot Dimensions
   constexpr double ROBOT_SIZE = 0.115; //DEPRECATED: will be removed on next release
-  constexpr double ROBOT_HEIGHT = 0.075;
-  constexpr double ROBOT_RADIUS = 0.0575;
-  constexpr double AXLE_LENGTH = 0.07;
-  constexpr double WHEEL_RADIUS = 0.03;
+  constexpr double ROBOT_HEIGHT = 0.09;
+  constexpr double ROBOT_RADIUS = 0.075;
+  constexpr double AXLE_LENGTH = 0.14;
+  constexpr double WHEEL_RADIUS = 0.04;
 
   // robot
   constexpr std::size_t NUMBER_OF_ROBOTS = 5;
@@ -66,24 +66,26 @@ namespace constants {
    * NEW OPTIONS
    ********************************************************************************/ 
   constexpr bool ROBOT_INIT_RANDOM = true;
+  constexpr bool BALL_INIT_RANDOM = true;
   constexpr std::size_t RED_TEAM_ACTIVE_PLAYER = 3;
   constexpr std::size_t BLUE_TEAM_ACTIVE_PLAYER = 0;
+  /********************************************************************************/
 
   constexpr double ROBOT_INIT_POSTURE[NUMBER_OF_ROBOTS][3] = {
     // x, y, th
-    {-0.4,  0.3, 0},
-    {-0.4, -0.3, 0},
-    {-1.0,  0.6, 0},
-    {-1.0, -0.6, 0},
-    {-1.8,  0.0, PI / 2},
+    {-3.8,  0, PI / 2},
+    {-2.25, 1.0, 0},
+    {-2.25, -1.0, 0},
+    {-0.65, 0.3, 0},
+    {-0.65, -0.3, 0},
   };
 
   constexpr double ROBOT_FOUL_POSTURE[NUMBER_OF_ROBOTS][3] = {
-    {-1.99, 0.55, 0},
-    {-1.99, 0.70, 0},
-    {-1.99, 0.85, 0},
-    {-1.99, 1.00, 0},
-    {-1.99, 1.15, 0},
+    {-4.29, 1.35, 0},
+    {-4.29, 1.70, 0},
+    {-4.29, 2.05, 0},
+    {-4.29, 2.40, 0},
+    {-4.29, 2.75, 0},
   };
 
   // WAMP router settings

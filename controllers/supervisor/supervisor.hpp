@@ -66,6 +66,9 @@ public:
     return pc_cams_[is_red ? C_CAMA : C_CAMB]->getImage();
   }
 
+  void set_init_posture(bool is_red, std::size_t id, std::array<double, 3>* posture);
+  void set_ball_posture(std::array<double, 2>* posture);
+
   void reset_position()
   {
     namespace c = constants;
@@ -97,18 +100,21 @@ public:
       pn->resetPhysics();
     };
 
-    reset_ball_node(getFromDef(c::DEF_BALL), 0, c::BALL_RADIUS, 0);
+    std::array<double, 2> ball_init_posture;
+    set_ball_posture(&ball_init_posture);
+    reset_ball_node(getFromDef(c::DEF_BALL), ball_init_posture[0], c::BALL_RADIUS, ball_init_posture[1]);
 
-    double[] robot_init_posture = c::ROBOT_INIT_POSTURE;
+    std::array<double, 3> robot_init_posture;
+
     for(const auto& is_red : {true, false}) {
       const auto s = is_red ? 1 : -1;
-      const auto n = is_red ? c::RED_TEAM_ACTIVE_PLAYER : c::BLUE_TEAM_ACTIVE_PLAYER;
-      for(std::size_t id = 0; id < n; ++id) {
+      for(std::size_t id = 0; id < c::NUMBER_OF_ROBOTS; ++id) {
+        set_init_posture(is_red, id, &robot_init_posture); 
         reset_robot_node(getFromDef(robot_name(is_red, id)),
-                   robot_init_posture[id][0] * s,
+                   robot_init_posture[0] * s,
                    c::ROBOT_HEIGHT / 2,
-                   robot_init_posture[id][1] * s,
-                   robot_init_posture[id][2] + (is_red ? 0. : c::PI));
+                   robot_init_posture[1] * s,
+                   robot_init_posture[2] + (is_red ? 0. : c::PI));
       }
     }
   }

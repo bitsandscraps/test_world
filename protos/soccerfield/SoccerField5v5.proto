@@ -8,8 +8,8 @@ PROTO SoccerField5v5 [
   field SFFloat  floorWidth 6.0
   field SFFloat  wallHeight 0.075
   field SFFloat  wallThickness 0.025
-  field SFNode   floorAppearance Black { }
-  field SFNode   wallAppearance Gray { }
+  field SFNode   floorAppearance White { }
+  field SFNode   wallAppearance Black { }
   field SFFloat  lineThickness 0.01
   field SFNode   grassSlot SoccerFieldGrass { }
   field SFString floorContactMaterial "default"
@@ -40,7 +40,7 @@ PROTO SoccerField5v5 [
     penaltyArcProportion 0.25
     penaltyArcSubdivision 7
 
-    lineAppearance White { }
+    lineAppearance Black { }
     lineThickness IS lineThickness
     lineHeight 0.003
 
