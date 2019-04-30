@@ -62,6 +62,13 @@ namespace constants {
   constexpr std::size_t NUMBER_OF_ROBOTS = 5;
   constexpr double MAX_LINEAR_VELOCITY = 1.5;
 
+  /*********************************************************************************
+   * NEW OPTIONS
+   ********************************************************************************/ 
+  constexpr bool ROBOT_INIT_RANDOM = true;
+  constexpr std::size_t RED_TEAM_ACTIVE_PLAYER = 3;
+  constexpr std::size_t BLUE_TEAM_ACTIVE_PLAYER = 0;
+
   constexpr double ROBOT_INIT_POSTURE[NUMBER_OF_ROBOTS][3] = {
     // x, y, th
     {-0.4,  0.3, 0},

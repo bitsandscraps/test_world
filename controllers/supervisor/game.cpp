@@ -154,6 +154,7 @@ void game::run()
 
       if (config_json["rule"].HasMember("penalty_area_foul") && config_json["rule"]["penalty_area_foul"].IsBool())
         penalty_area_foul_flag_ = config_json["rule"]["penalty_area_foul"].GetBool();
+
     }
     else
       std::cout << "\"rule\" section of 'config.json' seems to be missing: using default options" << std::endl;

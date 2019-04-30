@@ -21,7 +21,7 @@ PROTO SoccerFieldLine [
   field SFFloat  penaltyArcProportion 0.25
   field SFFloat  penaltyArcSubdivision 7
 
-  field SFNode   lineAppearance White { }
+  field SFNode   lineAppearance Black { }
   field SFFloat  lineThickness 0.01
   field SFFloat  lineHeight 0.001
 ]

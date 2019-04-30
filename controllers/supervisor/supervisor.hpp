@@ -99,14 +99,16 @@ public:
 
     reset_ball_node(getFromDef(c::DEF_BALL), 0, c::BALL_RADIUS, 0);
 
+    double[] robot_init_posture = c::ROBOT_INIT_POSTURE;
     for(const auto& is_red : {true, false}) {
       const auto s = is_red ? 1 : -1;
-      for(std::size_t id = 0; id < c::NUMBER_OF_ROBOTS; ++id) {
+      const auto n = is_red ? c::RED_TEAM_ACTIVE_PLAYER : c::BLUE_TEAM_ACTIVE_PLAYER;
+      for(std::size_t id = 0; id < n; ++id) {
         reset_robot_node(getFromDef(robot_name(is_red, id)),
-                   c::ROBOT_INIT_POSTURE[id][0] * s,
+                   robot_init_posture[id][0] * s,
                    c::ROBOT_HEIGHT / 2,
-                   c::ROBOT_INIT_POSTURE[id][1] * s,
-                   c::ROBOT_INIT_POSTURE[id][2] + (is_red ? 0. : c::PI));
+                   robot_init_posture[id][1] * s,
+                   robot_init_posture[id][2] + (is_red ? 0. : c::PI));
       }
     }
   }
