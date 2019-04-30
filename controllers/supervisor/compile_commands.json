@@ -1,0 +1,34 @@
+[
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-O3",
+            "-DNDEBUG",
+            "-Wall",
+            "-Wextra",
+            "-std=c++14",
+            "-pedantic",
+            "-O2",
+            "-pthread",
+            "-I",
+            "../../extlibs/bonefish/include",
+            "-I",
+            "../../extlibs/msgpack-c/include",
+            "-I",
+            "../../extlibs/autobahn-cpp/include",
+            "-I",
+            "../../extlibs/rapidjson/include",
+            "-I",
+            "../../extlibs/boost-1.65.1/include",
+            "-I.",
+            "-I/usr/local/webots/include/controller/cpp",
+            "-o",
+            "build/release/supervisor.o",
+            "supervisor.cpp"
+        ],
+        "directory": "/mnt/wisrl/Documents/wcg/test_world/controllers/supervisor",
+        "file": "supervisor.cpp"
+    }
+]
