@@ -10,9 +10,9 @@ PROTO SoccerRobot [
   field SFVec3f    scale               1 1 1
 
   # fields for left and right wheels
-  field SFVec3f    lwTranslation       -0.07 -0.0075 0
+  field SFVec3f    lwTranslation       -0.035 -0.0075 0
   field SFRotation lwRotation          1 0 0 1.570796
-  field SFVec3f    rwTranslation       0.07 -0.0075 0
+  field SFVec3f    rwTranslation       0.035 -0.0075 0
   field SFRotation rwRotation          1 0 0 1.570796
 
   # children
@@ -51,12 +51,12 @@ PROTO SoccerRobot [
   field SFFloat  height 0.09
 
   field SFBool   kinematic FALSE # If TRUE, Physics are ignored
-  field SFFloat  axleLength     0.07
+  field SFFloat  axleLength     0.14
   field SFFloat  wheelRadius    0.04
   field SFFloat  wheelThickness 0.01
   field SFFloat  wheelTireThickness 0.0
 
-  field SFFloat  bodyRadius     0.106
+  field SFFloat  bodyRadius     0.1061
   field SFFloat  bodySubdivision 4
   field SFFloat  wheelVisibleRatio 0.75
 

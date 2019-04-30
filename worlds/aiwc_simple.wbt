@@ -175,7 +175,7 @@ SoccerField5v5 {
   wallContactMaterial "wall"
 }
 DEF DEF_BALL SoccerBall {
-  translation 0 0.05 0
+  translation 0 0.03 0
   contactMaterial "ball"
   mass 0.0184
   shapes [
@@ -185,18 +185,21 @@ DEF DEF_BALL SoccerBall {
   ]
 }
 DEF DEF_ROBOTR0 SoccerRobot {
-  translation -3.8 0.045 0
+  translation -0.4 0.045 0.3
   rotation 0 1 0 -1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "R0"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 64
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 0.4
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 1.5
+  }
   patches [
     SoccerRobotIDPatch {
       name "id_patch_red"
@@ -208,18 +211,21 @@ DEF DEF_ROBOTR0 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTR1 SoccerRobot {
-  translation -2.25 0.045 1.0
+  translation -0.4 0.045 -0.3
   rotation 0 1 0 -1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "R1"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 64
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 0.4
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 1.5
+  }
   patches [
     SoccerRobotIDPatch {
       id 31
@@ -233,18 +239,21 @@ DEF DEF_ROBOTR1 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTR2 SoccerRobot {
-  translation -2.25 0.045 -1.0
+  translation -1 0.045 0.6
   rotation 0 1 0 -1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "R2"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 52
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 1.2
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 2.0
+  }
   patches [
     SoccerRobotIDPatch {
       id 227
@@ -258,18 +267,21 @@ DEF DEF_ROBOTR2 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTR3 SoccerRobot {
-  translation -0.65 0.045 0.3
+  translation -1 0.045 -0.6
   rotation 0 1 0 -1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "R3"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 52
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 1.2
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 2.0
+  }
   patches [
     SoccerRobotIDPatch {
       id 364
@@ -283,17 +295,20 @@ DEF DEF_ROBOTR3 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTR4 SoccerRobot {
-  translation -0.65 0.045 -0.3
+  translation -1.8 0.045 0
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "R4"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 45
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 0.8
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 2.5
+  }
   patches [
     SoccerRobotIDPatch {
       id 437
@@ -307,18 +322,21 @@ DEF DEF_ROBOTR4 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTB0 SoccerRobot {
-  translation 3.8 0.045 0
+  translation 0.4 0.045 -0.3
   rotation 0 1 0 1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "B0"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 64
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 0.4
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 1.5
+  }
   patches [
     SoccerRobotIDPatch {
       isTeamTagRed FALSE
@@ -330,18 +348,21 @@ DEF DEF_ROBOTB0 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTB1 SoccerRobot {
-  translation 2.25 0.045 -1.0
+  translation 0.4 0.045 0.3
   rotation 0 1 0 1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "B1"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 64
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 0.4
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 1.5
+  }
   patches [
     SoccerRobotIDPatch {
       id 31
@@ -355,18 +376,21 @@ DEF DEF_ROBOTB1 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTB2 SoccerRobot {
-  translation 2.25 0.045 1.0
+  translation 1 0.045 -0.6
   rotation 0 1 0 1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "B2"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 52
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 1.2
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 2.0
+  }
   patches [
     SoccerRobotIDPatch {
       id 227
@@ -380,18 +404,21 @@ DEF DEF_ROBOTB2 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTB3 SoccerRobot {
-  translation 0.65 0.045 -0.3
+  translation 1 0.045 0.6
   rotation 0 1 0 1.5708
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "B3"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 52
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 1.2
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 2.0
+  }
   patches [
     SoccerRobotIDPatch {
       id 364
@@ -405,18 +432,21 @@ DEF DEF_ROBOTB3 SoccerRobot {
   ]
 }
 DEF DEF_ROBOTB4 SoccerRobot {
-  translation 0.65 0.045 0.3
+  translation 1.8 0.045 0
   rotation 0 1 0 3.14159
   lwRotation 1 0 0 1.5708
   rwRotation 1 0 0 1.5708
   name "B4"
   customData "0 0"
   controller "soccer_robot"
-  maxSpeed 50
+  maxSpeed 45
   slipNoise 0.05
-  maxForce 0.1
+  maxForce 0.8
   bodyContactMaterial "body"
   wheelContactMaterial "wheel"
+  bodyPhysics Physics {
+    mass 2.5
+  }
   patches [
     SoccerRobotIDPatch {
       id 437

@@ -4,12 +4,12 @@
 
 PROTO SoccerField5v5 [
   field SFFloat  height 0.12 # height of virtual ceiling
-  field SFFloat  floorLength 9.5
-  field SFFloat  floorWidth 6.0
+  field SFFloat  floorLength 8.8
+  field SFFloat  floorWidth 5.65
   field SFFloat  wallHeight 0.075
   field SFFloat  wallThickness 0.025
   field SFNode   floorAppearance White { }
-  field SFNode   wallAppearance Black { }
+  field SFNode   wallAppearance Gray { }
   field SFFloat  lineThickness 0.01
   field SFNode   grassSlot SoccerFieldGrass { }
   field SFString floorContactMaterial "default"
@@ -23,7 +23,7 @@ PROTO SoccerField5v5 [
     cornerLength 0.1
     floorLength IS floorLength
     floorWidth IS floorWidth
-    goalWidth 1.0
+    goalWidth 1
     goalDepth 0.45
     wallHeight IS wallHeight
     wallThickness IS wallThickness
