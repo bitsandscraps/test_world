@@ -66,11 +66,14 @@ public:
     return pc_cams_[is_red ? C_CAMA : C_CAMB]->getImage();
   }
 
-  void set_init_posture(bool is_red, std::size_t id, std::array<double, 3>* posture);
   void set_ball_posture(std::array<double, 2>* posture);
+  void set_init_posture(
+      std::array<double, 2>* ball_posture,
+      std::array<std::array<std::array<double, 3>, constants::NUMBER_OF_ROBOTS>, 2>* robot_posture);
 
   void reset_position()
   {
+    assert(false);
     namespace c = constants;
 
     const auto reset_ball_node = [&](webots::Node* pn, double x, double y, double z) {
@@ -104,17 +107,16 @@ public:
     set_ball_posture(&ball_init_posture);
     reset_ball_node(getFromDef(c::DEF_BALL), ball_init_posture[0], c::BALL_RADIUS, ball_init_posture[1]);
 
-    std::array<double, 3> robot_init_posture;
+    std::array<std::array<std::array<double, 3>, c::NUMBER_OF_ROBOTS>, 2> robot_init_posture;
 
-    for(const auto& is_red : {true, false}) {
-      const auto s = is_red ? 1 : -1;
+    set_init_posture(&ball_init_posture, &robot_init_posture);
+    for(const std::size_t team_id : {0, 1}) {
       for(std::size_t id = 0; id < c::NUMBER_OF_ROBOTS; ++id) {
-        set_init_posture(is_red, id, &robot_init_posture); 
-        reset_robot_node(getFromDef(robot_name(is_red, id)),
-                   robot_init_posture[0] * s,
-                   c::ROBOT_HEIGHT / 2,
-                   robot_init_posture[1] * s,
-                   robot_init_posture[2] + (is_red ? 0. : c::PI));
+        reset_robot_node(getFromDef(robot_name(team_id == 0, id)),
+                         robot_init_posture[team_id][id][0],
+                         c::ROBOT_HEIGHT / 2,
+                         robot_init_posture[team_id][id][1],
+                         robot_init_posture[team_id][id][2]);
       }
     }
   }

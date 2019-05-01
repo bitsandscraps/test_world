@@ -521,14 +521,7 @@ void game::reset()
   sv_.reset_position();
 
   // reset activeness
-  for(std::size_t team_id = 0; team_id < 2; ++team_id) {
-    const std::size_t active_players = team_id == 0 ? \
-                                       constants::RED_TEAM_ACTIVE_PLAYER : \
-                                       constants::BLUE_TEAM_ACTIVE_PLAYER;
-    for(std::size_t id = 0; id < constants::NUMBER_OF_ROBOTS; ++id) {
-      activeness_[team_id][id] = id < active_players;
-    }
-  }
+  activeness_ = constants::ACTIVENESS_;
   /*
   for(auto& team_activeness : activeness_) {
     for(auto& robot_activeness : team_activeness) {

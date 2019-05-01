@@ -35,6 +35,7 @@ PROTO SoccerField [
   field SFFloat  wallThickness 0.025
   field SFNode   floorAppearance Black { }
   field SFNode   wallAppearance DarkGray { }
+  field SFNode   wallTopAppearance DarkGray { }
 
   field SFFloat  centerDotRadius 0.01
   field SFFloat  centerCircleRadius 0.25
@@ -134,8 +135,8 @@ PROTO SoccerField [
                 translation 0 %{=wh / 2}% %{=-(w + wt) / 2}%
                 children [
                   DEF TOP_WALL MyBox {
-                    size %{=l}% %{=wh}% %{=wt}%
-                    topAppearance White { }
+                    size %{=l + gd * 2}% %{=wh}% %{=wt}%
+                    topAppearance IS wallTopAppearance
                     bottomAppearance IS wallAppearance
                     frontAppearance IS wallAppearance
                     backAppearance IS wallAppearance
@@ -151,11 +152,11 @@ PROTO SoccerField [
                 ]
               }
               Transform { # left_top
-                translation %{=-(l + wt) / 2}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
+                translation %{=-(l + wt) / 2 - gd}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
                 children [
                   DEF LEFT_TOP_WALL MyBox {
                     size %{=wt}% %{=wh}% %{=(w - gw + 2 * wt) / 2}%
-                    topAppearance White { }
+                    topAppearance IS wallTopAppearance
                     bottomAppearance IS wallAppearance
                     frontAppearance IS wallAppearance
                     backAppearance IS wallAppearance
@@ -165,25 +166,25 @@ PROTO SoccerField [
                 ]
               }
               Transform { # left_bottom
-                translation %{=-(l + wt) / 2}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
+                translation %{=-(l + wt) / 2 - gd}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
                 children [
                   USE LEFT_TOP_WALL
                 ]
               }
               Transform { # right_top
-                translation %{=(l + wt) / 2}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
+                translation %{=(l + wt) / 2 + gd}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
                 children [
                   USE LEFT_TOP_WALL
                 ]
               }
               Transform { # right_bottom
-                translation %{=(l + wt) / 2}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
+                translation %{=(l + wt) / 2 + gd}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
                 children [
                   USE LEFT_TOP_WALL
                 ]
               }
               Transform { # left_top_corner
-                translation %{=-l / 2}% 0 %{=-w / 2}%
+                translation %{=-l / 2 - gd}% 0 %{=-w / 2}%
                 children [
                   DEF LEFT_TOP_CORNER Group {
                     children [
@@ -209,7 +210,7 @@ PROTO SoccerField [
                         }
                       }
                       Shape {
-                        appearance White { }
+                        appearance IS wallTopAppearance
                         geometry IndexedFaceSet {
                           coord Coordinate {
                             point [
@@ -228,21 +229,21 @@ PROTO SoccerField [
                 ]
               }
               Transform { # left_bottom_corner
-                translation %{=-l / 2}% 0 %{=w / 2}%
+                translation %{=-l / 2 - gd}% 0 %{=w / 2}%
                 rotation 0 1 0 %{=math.pi / 2}%
                 children [
                   USE LEFT_TOP_CORNER
                 ]
               }
               Transform { # right_top_corner
-                translation %{=l / 2}% 0 %{=-w / 2}%
+                translation %{=l / 2 + gd}% 0 %{=-w / 2}%
                 rotation 0 1 0 %{=-math.pi / 2}%
                 children [
                   USE LEFT_TOP_CORNER
                 ]
               }
               Transform { # right_bottom_corner
-                translation %{=l / 2}% 0 %{=w / 2}%
+                translation %{=l / 2 + gd}% 0 %{=w / 2}%
                 rotation 0 1 0 %{=math.pi}%
                 children [
                   USE LEFT_TOP_CORNER
@@ -253,7 +254,7 @@ PROTO SoccerField [
                 children [
                   DEF LEFT_GOAL_TOP_WALL MyBox {
                     size %{=gd - wt}% %{=wh}% %{=wt}%
-                    topAppearance White { }
+                    topAppearance IS wallTopAppearance
                     bottomAppearance IS wallAppearance
                     frontAppearance IS wallAppearance
                     backAppearance IS wallAppearance
@@ -267,7 +268,7 @@ PROTO SoccerField [
                 children [
                   DEF LEFT_GOAL_LEFT_WALL MyBox {
                     size %{=wt}% %{=wh}% %{=gw + 2 * wt}%
-                    topAppearance White { }
+                    topAppearance IS wallTopAppearance
                     bottomAppearance IS wallAppearance
                     frontAppearance IS wallAppearance
                     backAppearance IS wallAppearance

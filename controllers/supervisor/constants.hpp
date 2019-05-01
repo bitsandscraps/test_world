@@ -54,38 +54,41 @@ namespace constants {
   // Robot Dimensions
   constexpr double ROBOT_SIZE = 0.115; //DEPRECATED: will be removed on next release
   constexpr double ROBOT_HEIGHT = 0.09;
-  constexpr double ROBOT_RADIUS = 0.075;
+  constexpr double ROBOT_RADIUS = 0.1061;
   constexpr double AXLE_LENGTH = 0.14;
   constexpr double WHEEL_RADIUS = 0.04;
 
   // robot
   constexpr std::size_t NUMBER_OF_ROBOTS = 5;
-  constexpr double MAX_LINEAR_VELOCITY = 1.5;
+  constexpr double MAX_LINEAR_VELOCITY = 2.55;
 
   /*********************************************************************************
    * NEW OPTIONS
    ********************************************************************************/ 
   constexpr bool ROBOT_INIT_RANDOM = true;
   constexpr bool BALL_INIT_RANDOM = true;
-  constexpr std::size_t RED_TEAM_ACTIVE_PLAYER = 3;
-  constexpr std::size_t BLUE_TEAM_ACTIVE_PLAYER = 0;
+  // FW1, FW2, DF1, DF2, GK
+  constexpr std::array<std::array<bool, NUMBER_OF_ROBOTS>, 2> ACTIVENESS_ = {{
+    {true, true, true, true, true},      // RED
+    {true, true, true, true, true},   // BLUE
+  }};
   /********************************************************************************/
 
   constexpr double ROBOT_INIT_POSTURE[NUMBER_OF_ROBOTS][3] = {
     // x, y, th
-    {-3.8,  0, PI / 2},
-    {-2.25, 1.0, 0},
-    {-2.25, -1.0, 0},
     {-0.65, 0.3, 0},
     {-0.65, -0.3, 0},
+    {-2.25, 1.0, 0},
+    {-2.25, -1.0, 0},
+    {-3.8,  0, PI / 2},
   };
 
   constexpr double ROBOT_FOUL_POSTURE[NUMBER_OF_ROBOTS][3] = {
-    {-4.29, 1.35, 0},
-    {-4.29, 1.70, 0},
-    {-4.29, 2.05, 0},
-    {-4.29, 2.40, 0},
-    {-4.29, 2.75, 0},
+    {-4.19, 1.25, 0},
+    {-4.19, 1.60, 0},
+    {-4.19, 1.95, 0},
+    {-4.19, 2.30, 0},
+    {-4.19, 2.65, 0},
   };
 
   // WAMP router settings

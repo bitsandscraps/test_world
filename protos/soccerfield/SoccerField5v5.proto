@@ -3,13 +3,14 @@
 #Maintainer:        Chansol Hong (cshong@rit.kaist.ac.kr)
 
 PROTO SoccerField5v5 [
-  field SFFloat  height 0.12 # height of virtual ceiling
-  field SFFloat  floorLength 8.8
-  field SFFloat  floorWidth 5.65
-  field SFFloat  wallHeight 0.075
+  field SFFloat  height 0.8 # height of virtual ceiling
+  field SFFloat  floorLength 9.0
+  field SFFloat  floorWidth 6.0
+  field SFFloat  wallHeight 0.2
   field SFFloat  wallThickness 0.025
   field SFNode   floorAppearance White { }
-  field SFNode   wallAppearance Gray { }
+  field SFNode   wallAppearance Black { }
+  field SFNode   wallTopAppearance Black { }
   field SFFloat  lineThickness 0.01
   field SFNode   grassSlot SoccerFieldGrass { }
   field SFString floorContactMaterial "default"
@@ -29,6 +30,7 @@ PROTO SoccerField5v5 [
     wallThickness IS wallThickness
     floorAppearance IS floorAppearance
     wallAppearance IS wallAppearance
+    wallTopAppearance IS wallTopAppearance
 
     centerDotRadius 0.01
     centerCircleRadius 0.5
