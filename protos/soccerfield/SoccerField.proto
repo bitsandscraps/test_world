@@ -135,7 +135,7 @@ PROTO SoccerField [
                 translation 0 %{=wh / 2}% %{=-(w + wt) / 2}%
                 children [
                   DEF TOP_WALL MyBox {
-                    size %{=l + gd * 2}% %{=wh}% %{=wt}%
+                    size %{=l}% %{=wh}% %{=wt}%
                     topAppearance IS wallTopAppearance
                     bottomAppearance IS wallAppearance
                     frontAppearance IS wallAppearance
@@ -152,7 +152,7 @@ PROTO SoccerField [
                 ]
               }
               Transform { # left_top
-                translation %{=-(l + wt) / 2 - gd}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
+                translation %{=-(l + wt) / 2}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
                 children [
                   DEF LEFT_TOP_WALL MyBox {
                     size %{=wt}% %{=wh}% %{=(w - gw + 2 * wt) / 2}%
@@ -166,25 +166,25 @@ PROTO SoccerField [
                 ]
               }
               Transform { # left_bottom
-                translation %{=-(l + wt) / 2 - gd}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
+                translation %{=-(l + wt) / 2}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
                 children [
                   USE LEFT_TOP_WALL
                 ]
               }
               Transform { # right_top
-                translation %{=(l + wt) / 2 + gd}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
+                translation %{=(l + wt) / 2}% %{=wh / 2}% %{=-(w + gw + 2 * wt) / 4}%
                 children [
                   USE LEFT_TOP_WALL
                 ]
               }
               Transform { # right_bottom
-                translation %{=(l + wt) / 2 + gd}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
+                translation %{=(l + wt) / 2}% %{=wh / 2}% %{=(w + gw + 2 * wt) / 4}%
                 children [
                   USE LEFT_TOP_WALL
                 ]
               }
               Transform { # left_top_corner
-                translation %{=-l / 2 - gd}% 0 %{=-w / 2}%
+                translation %{=-l / 2}% 0 %{=-w / 2}%
                 children [
                   DEF LEFT_TOP_CORNER Group {
                     children [
@@ -229,21 +229,21 @@ PROTO SoccerField [
                 ]
               }
               Transform { # left_bottom_corner
-                translation %{=-l / 2 - gd}% 0 %{=w / 2}%
+                translation %{=-l / 2}% 0 %{=w / 2}%
                 rotation 0 1 0 %{=math.pi / 2}%
                 children [
                   USE LEFT_TOP_CORNER
                 ]
               }
               Transform { # right_top_corner
-                translation %{=l / 2 + gd}% 0 %{=-w / 2}%
+                translation %{=l / 2}% 0 %{=-w / 2}%
                 rotation 0 1 0 %{=-math.pi / 2}%
                 children [
                   USE LEFT_TOP_CORNER
                 ]
               }
               Transform { # right_bottom_corner
-                translation %{=l / 2 + gd}% 0 %{=w / 2}%
+                translation %{=l / 2}% 0 %{=w / 2}%
                 rotation 0 1 0 %{=math.pi}%
                 children [
                   USE LEFT_TOP_CORNER

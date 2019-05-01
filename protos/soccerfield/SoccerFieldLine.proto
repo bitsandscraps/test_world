@@ -14,8 +14,6 @@ PROTO SoccerFieldLine [
   field SFFloat  centerDotRadius 0.01
   field SFFloat  centerCircleRadius 0.25
   field SFFloat  centerCircleSubdivision 12
-  field SFFloag  goalWidth 1
-  field SFFloat  goalDepth 0.45
   field SFFloat  penaltyAreaDepth 0.35
   field SFFloat  penaltyAreaWidth 0.8
   field SFFloat  goalAreaDepth 0.15
@@ -44,8 +42,6 @@ PROTO SoccerFieldLine [
 
     local lt = fields.lineThickness.value
     local lh = fields.lineHeight.value
-    local gd = fields.goalDepth.value
-    local gw = fields.goalWidth.value
   }%
   Transform {
     translation IS translation
@@ -152,33 +148,6 @@ PROTO SoccerFieldLine [
         ]
       }
 
-      DEF LEFTGOAL Group {
-        children [
-          DEF HORIZONTALUPPERLINE Transform {
-            translation %{=gd / 2 - l / 2}% 0 %{=-gw / 2}%
-            children [
-              Shape {
-                appearance IS lineAppearance
-                geometry Box {
-                  size %{=gd}% %{=lh}% %{=lt}%
-                }
-              }
-            ]
-          }
-          DEF HORIZONTALLOWERLINE Transform {
-            translation %{=gd / 2 - l / 2}% 0 %{=gw / 2}%
-            children [
-              Shape {
-                appearance IS lineAppearance
-                geometry Box {
-                  size %{=gd}% %{=lh}% %{=lt}%
-                }
-              }
-            ]
-          }
-        ]
-      }
-
       DEF LEFTGOALAREA Group {
         children [
           DEF VERTICALLINE Transform {
@@ -230,7 +199,7 @@ PROTO SoccerFieldLine [
           Shape {
             appearance IS lineAppearance
             geometry Box {
-              size %{=lt}% %{=lh}% %{=w}%
+              size %{=lt}% %{=lh}% %{=paw}%
             }
           }
         ]
