@@ -3,3 +3,4 @@ plugins/physics/*/build
 *.cache
 *.swp
 *~
+examples
